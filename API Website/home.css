@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #f0f8ff, #e6e6fa);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+nav {
+  background: grey;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
+
+nav ul li a:hover {
+  background: rgb(155, 154, 154);
+  border-radius: 4px;
+}
+
+
+
+.welcome-header {
+  font-size: 1.5rem;
+  background: transparent;
+  text-align: center;
+  margin-top: 8rem;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+  color: #333;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.grid {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  margin: 3rem auto;
+ 
+  max-width: 1000px;
+}
+
+.api-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1;
+  min-width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.api-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgb(155, 154, 154);
+  background: #f0f8ff;
+}
+
+
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: grey;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background:rgb(155, 154, 154);
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: .5rem;
+  background: grey;
+  margin-top: 200px;
+  color: white;
+}
+

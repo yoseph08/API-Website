@@ -1,0 +1,90 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>YouTube to MP3 Converter</title>
+  <link rel="stylesheet" href="api.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <div>API Hub</div>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>YouTube to MP3 Converter</h1>
+      <input type="text" id="youtube-url" placeholder="Paste YouTube link here..." />
+      <button onclick="convertVideo()">Convert & Download</button>
+      <div id="result"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Created for class project • API Hub</p>
+  </footer>
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0e6f8, #ede8f5);
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 120px auto;
+      padding: 2rem 2.5rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: #3D52A0;
+      text-align: center;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.2rem;
+      border: 2px solid #7091E6;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: #7091E6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3D52A0;
+    }
+
+    #result {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    nav ul li:nth-child(2) {
+      margin-left: 15px;
+    }
+  </style>

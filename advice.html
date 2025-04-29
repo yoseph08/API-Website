@@ -31,6 +31,30 @@
     <p2>Created for class project  *  API Hub</p2>
   </footer>
 
+  <script>
+    // attach a click event listener to the first button element on the page
+    document.querySelector("button").addEventListener("click", async () => {
+      //get the div where the advice will be shown
+      const output = document.getElementById("advice-output");
+
+      // displays a loading messag while fetching advice
+      output.textContent = "Loading advice...";
+
+      try {
+        //make a GET request to the Advice slip API
+        const res = await fetch("https://api.adviceslip.com/advice");
+        //then parse the response as JSON
+        const data = await res.json();
+        // then display the fetched advice inside the #advice-output container
+        output.textContent = `"${data.slip.advice}"`;
+      } catch (err) {
+        // if ttheres an error display an error message
+        output.textContent = "Couldn't fetch advice, Try again.";
+        console.error("Error fetching advice:", err);
+      }
+    });
+  </script>
+
 </body>
 </html>
 <style>

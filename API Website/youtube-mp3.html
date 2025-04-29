@@ -27,12 +27,62 @@
   </main>
 
   <footer>
-    <p>Created for class project • API Hub</p>
+    <p>Created for class project * API Hub</p>
   </footer>
   <style>
-    body {
-      background: linear-gradient(135deg, #e0e6f8, #ede8f5);
-    }
+   
+      body {
+      font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #286ba6, white);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(-45deg, #3582c5, #e6e6fa, #d1e0ff, #f5f5dc);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+h1{
+font-size: 3rem;
+color:  #7091E6;
+animation: fadeInZoom 2s ease-out;
+}
+
+p{
+  color: #3d52a0;
+  font-style: bold;
+  font-size: larger;
+}
+
+#p2{
+  color: white;
+  font-size: larger;
+  font-style: bold;
+}
 
     .container {
       max-width: 500px;
@@ -65,7 +115,7 @@
 
     button {
       padding: 0.75rem 1.5rem;
-      background-color: #7091E6;
+      background-color: rgb(112, 145, 230);
       color: white;
       border: none;
       border-radius: 6px;
@@ -86,5 +136,20 @@
 
     nav ul li:nth-child(2) {
       margin-left: 15px;
+    }
+
+    @keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(112, 145, 230);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 165, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 165, 0, 0);
+  }
+}
+button:hover {
+  animation: pulse 2s infinite;
     }
   </style>

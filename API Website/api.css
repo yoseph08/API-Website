@@ -12,7 +12,7 @@ body {
 
 
 nav {
-  background: grey;
+  background:#3d52a0;
   padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -39,7 +39,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background: rgb(155, 154, 154);
+  background: #7091E6;
   border-radius: 4px;
 }
 
@@ -54,7 +54,8 @@ main {
 footer {
   text-align: center;
   padding: 0.5rem;
-  background: grey;
+  background: #3d52a0;
   color: white;
   margin-top: auto;
 }
+

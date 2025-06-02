@@ -1,0 +1,160 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #286ba6, #e6e6fa);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(-45deg, #3582c5, #e6e6fa, #d1e0ff, #f5f5dc);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+nav {
+  background:#3d52a0;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
+
+nav ul li a:hover {
+  background: #7091E6;
+  border-radius: 4px;
+}
+
+
+
+.welcome-header {
+  font-size: 1.9rem;
+  background: transparent;
+  text-align: center;
+  margin-top: 8rem;
+  text-shadow: 2px 2px 4px 8px#7091E6(255, 255, 255, 0.3);
+  color: #7091E6;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  gap: 3rem;
+  max-width: 1350px;
+  margin: 3rem auto;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+  
+
+.api-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1;
+  color: #7091E6;
+  min-width: 250px;
+
+ transition: transform 0.3s ease, box-shadow 0.3s ease, background .3s ease;
+ animation: slideInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+
+.api-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #8697c4;
+  background: #f0f8ff;
+}
+
+
+
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #8697c4;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #adbbda;
+  transform: scale(1.15);
+}
+
+footer {
+  text-align: center;
+  padding: .5rem;
+  background: grey;
+  margin-top: 200px;
+  color: white;
+}
+
+
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.welcome-header {
+  animation: fadeInZoom 3s ease-out;
+}
+

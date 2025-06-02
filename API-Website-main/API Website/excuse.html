@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Excuse Generator</title>
+  <link rel="stylesheet" href="api.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <nav>
+    <ul>
+      <li><strong>API Hub</strong></li>
+    </ul>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Need an Excuse?</h1>
+    <p>Choose your options below to generate your excuse(s):</p>
+  
+    <button onclick="getRandomExcuse()">Random Excuse</button>
+  
+    <div style="margin-top: 2rem;">
+      <select id="category-select">
+        <option value="">-- Select Category --</option>
+        <option value="office">Office</option>
+        <option value="party">Party</option>
+        <option value="funny">Funny</option>
+        <option value="unbelievable">Unbelievable</option>
+        <option value="developers">Developers</option>
+        <option value="gaming">Gaming</option>
+      </select>
+  
+      <input type="number" id="excuse-count" placeholder="Number of excuses" min="1" max="10" style="margin-left: 1rem; width: 150px;">
+       <button onclick="getCategoryExcuse()">Get 1 Excuse by Category</button>
+      <button onclick="getMultipleExcuses()">Get # Excuses by Category</button>
+    </div>
+  
+    <div id="excuse-output">An excuse will show up here...</div>
+   
+    <div class="action-buttons">
+      <div class="copy-button-container">
+      <button id="copy-btn" class="copy-button">Copy Excuse</button> 
+      </div>
+     <div class="back-button-container"> 
+      <button id="back-button" onclick="window.location.href='home.html'">Back</button> 
+      </div>
+    </div>
+
+  </main>
+  
+
+</body>
+</html>
+
+ <style>
+    body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #ff6b6b, white);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(-45deg, #ff6b6b, #e6e6fa, #d1e0ff, #ff6b6b);
+  background-size: 400% 400%;
+  animation: gradientShift 13s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+#p2{
+  color: white;
+  font-size: larger;
+  font-style: bold;
+}
+h1{
+font-size: 3rem;
+color: #ff6b6b;
+animation: fadeInZoom 2s ease-out;
+}
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+p{
+  color: #3d52a0;
+  font-style: bold;
+  font-size: larger;
+}
+  
+main {
+      text-align: center;
+      padding: 3rem 2rem;
+      flex-grow: 1;
+    }
+
+  h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+ button {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: rgb(224, 78, 78);
+      transform: scale(1.05);
+    }
+
+    #excuse-output {
+      margin-top: 3rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.4rem;
+      line-height: 1.6;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(224, 78, 78);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 165, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 165, 0, 0);
+  }
+}
+button:hover {
+  animation: pulse 2s infinite;
+    }
+
+select, input[type="number"] {
+  padding: 0.6rem 1rem;
+  margin-top: 1rem;
+  border: 2px solid #ff6b6b;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #333;
+  outline: none;
+}
+
+select:focus, input[type="number"]:focus {
+  border-color: #e14e4e;
+  box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+}
+
+button {
+  font-size: 1.1rem;
+  padding: 0.75rem 1.5rem;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1rem 0.5rem 0 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #e14e4e;
+  transform: scale(1.05);
+}
+
+#excuse-output ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-top: 1rem;
+  text-align: left;
+  color: #444;
+}
+
+#excuse-output li {
+  margin-bottom: 0.5rem;
+}
+.copy-button {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      background:  #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .copy-button:hover {
+      background-color:  #ff6b6b;
+    }
+    #back-button {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      background: #3d52a0;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+
+#back-button:hover {
+  background-color:#3d52a0;
+  transform: scale(1.05);
+  animation: pulse 2s infinite;
+}
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 1rem;
+  flex-wrap: wrap; 
+}
+
+.copy-button-container, .back-button-container {
+  display: flex;
+  justify-content: center;
+}
+  
+    footer {
+      text-align: center;
+      padding: 0.5rem;
+      background: #3d52a0;
+      color: white;
+    }
+  </style>
+
+
+<script>
+  const output = document.getElementById("excuse-output");
+ async function getRandomExcuse() {
+    output.innerHTML = "Loading random excuse...";
+    try {
+    const res = await fetch("https://excuser-three.vercel.app/v1/excuse");
+    const data = await res.json();
+    output.innerHTML = `"${data[0].excuse}"`;
+    } catch (err) {
+      output.innerHTML = "Error loading excuse.";
+      console.error(err);
+    }
+  }
+
+  async function getCategoryExcuse() {
+  const category = document.getElementById("category-select").value;
+  if (!category) {
+  output.innerHTML = "Please select a category.";
+  return;
+    }
+    output.innerHTML = `Loading 1 excuse from "${category}"...`;
+    try {
+      const res = await fetch(`https://excuser-three.vercel.app/v1/excuse/${category}`);
+      const data = await res.json();
+      output.innerHTML = `"${data[0].excuse}"`;
+    } catch (err) {
+      output.innerHTML = "Error loading category excuse.";
+      console.error(err);
+    }
+  }
+
+  async function getMultipleExcuses() {
+    const category = document.getElementById("category-select").value;
+    const count = parseInt(document.getElementById("excuse-count").value);
+
+    if (!category || !count || count < 1) {
+      output.innerHTML = "Select a category and valid number.";
+      return;
+    }
+
+    output.innerHTML = `Loading ${count} excuses from "${category}"...`;
+
+    try {
+      const res = await fetch(`https://excuser-three.vercel.app/v1/excuse/${category}/${count}`);
+      const data = await res.json();
+      output.innerHTML = data.map(item => `<li>${item.excuse}</li>`).join("");
+      output.innerHTML = `<ul style="text-align: left;">${output.innerHTML}</ul>`;
+    } catch (err) {
+      output.innerHTML = "Error loading multiple excuses.";
+      console.error(err);
+    }
+  }
+
+  const copyBtn = document.getElementById("copy-btn");
+
+copyBtn.addEventListener("click", () => {
+  let text;
+
+  if (output.querySelector("ul")) {
+  
+    const items = Array.from(output.querySelectorAll("li"));
+    text = items.map(item => item.textContent).join("\n");
+  } else {
+    text = output.textContent;
+  }
+
+  if (
+    text &&
+    text !== "An excuse will show up here..." &&
+    !text.includes("Loading")
+  ) {
+    navigator.clipboard.writeText(text).then(() => {
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => {
+        copyBtn.textContent = "Copy Excuse";
+      }, 1500);
+    }).catch(err => {
+      console.error("Failed to copy:", err);
+    });
+  }
+});
+</script>

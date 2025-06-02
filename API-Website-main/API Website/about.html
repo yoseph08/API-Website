@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - My API Website</title>
+  <link rel="stylesheet" href="api.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><strong> API Hub</strong></li>
+    </ul>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>About My API Website</h1>
+
+    <div class="section-box">
+      <h2>Technology</h2>
+      <p>This site is built using HTML, CSS, and JavaScript. APIs are integrated using the Fetch API for asynchronous data handling.</p>
+    </div>
+
+    <div class="section-box">
+      <h2>Objective</h2>
+      <p>My goal was to build a responsive, easy to use interface that showcases how APIs can be integrated smoothly using only front-end technologies.</p>
+    </div>
+
+    <div class="api-grid">
+
+      <div class="section-box">
+        <h2>Advice Page</h2>
+        <p>Integrates <a href="https://api.adviceslip.com/" target="_blank">Advice Slip API</a> to display random advice.</p>
+      </div>
+
+      <div class="section-box">
+        <h2>Fun Facts Page</h2>
+        <p>Uses the <a href="https://uselessfacts.jsph.pl/" target="_blank">Useless Facts API</a> to provide random trivia facts.</p>
+      </div>
+
+      <div class="section-box">
+        <h2>Excuse Generator</h2>
+        <p>Connects with the <a href="https://excuser-three.vercel.app/" target="_blank">Excuser API</a> to generate random excuses.</p>
+      </div>
+
+      <div class="section-box">
+        <h2>Joke Generator</h2>
+        <p>Uses the <a href="https://sv443.net/jokeapi/v2/" target="_blank">JokeAPI</a> to fetch various joke formats and categories.</p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
+
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f3f4f6;
+      color: #333;
+    }
+
+   
+
+    main {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  footer {
+    text-align: center;
+    padding: .5rem;
+    background: grey;
+    margin-top: 400px;
+    color: white;
+  }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: #3d52a0;
+      border-bottom: 4px solid #8697c4;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-box {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-left: 5px solid #8697c4;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 6px;
+    }
+
+    .section-box:hover {
+      transform: scale(1.015);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-box h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: #3d52a0;
+    }
+
+    .section-box p {
+      margin: 0.5rem 0 0 0;
+      font-size: 1rem;
+    }
+
+    .api-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    a {
+      color: #8697c4;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>

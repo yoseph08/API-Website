@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Random Fun Fact</title>
+  <link rel="stylesheet" href="api.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><strong>API Hub</strong></li>
+    </ul>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Discover a Fun Fact!</h1>
+    <p>Click below for a random fun fact.</p>
+    
+    <button id="random-btn">Show Me a Fun Fact</button>
+
+    
+    <div id="fact-output">Your fun fact will appear here...</div>
+    <div class="action-buttons">
+      <div class="copy-button-container">
+        <button id="copy-btn" class="copy-button">Copy Fact</button> 
+      </div>
+    
+      <div class="back-button-container"> 
+        <button id="back-button" onclick="window.location.href='home.html'">Back</button> 
+      </div>
+  </main>
+
+ 
+
+
+
+
+  <script>
+    const factOutput = document.getElementById("fact-output");
+    const randomBtn = document.getElementById("random-btn");
+    const copyBtn = document.getElementById("copy-btn");
+  
+    randomBtn.addEventListener("click", async () => {
+      factOutput.textContent = "Loading fun fact...";
+      try {
+        const res = await fetch("https://uselessfacts.jsph.pl/random.json");
+        const data = await res.json();
+        factOutput.textContent = `"${data.text}"`;
+      } catch (err) {
+        factOutput.textContent = "Oops! Couldn’t load a fun fact.";
+        console.error(err);
+      }
+    });
+  
+   
+    copyBtn.addEventListener("click", () => {
+      const text = factOutput.textContent;
+      if (text && text !== "Your fun fact will appear here...") {
+        navigator.clipboard.writeText(text).then(() => {
+          copyBtn.textContent = "Copied!";
+          setTimeout(() => (copyBtn.textContent = "Copy Fact"), 1500);
+        }).catch(err => {
+          console.error("Copy failed:", err);
+        });
+      }
+    });
+  </script>
+  
+</body>
+</html>
+<style>
+    body {
+      font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #ffa500,  white);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(-45deg, #ffa500, #e6e6fa, #d1e0ff,  #ffa500);
+  background-size: 400% 400%;
+  animation: gradientShift 13s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+h1{
+font-size: 3rem;
+color:  #ffa500;;
+animation: fadeInZoom 2s ease-out;
+}
+
+p{
+  color: #3d52a0;
+  font-style: bold;
+  font-size: larger;
+}
+
+#p2{
+  color: white;
+  font-size: larger;
+  font-style: bold;
+}
+
+    
+
+    button {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      background: #ffa500;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: rgb(224, 145, 0);
+      transform: scale(1.05);
+    }
+
+    #fact-output {
+      margin-top: 3rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.4rem;
+      line-height: 1.6;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(224, 145, 0);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 165, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 165, 0, 0);
+  }
+}
+button:hover {
+  animation: pulse 2s infinite;
+    }
+
+
+    .category-wrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+select {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 2px solid #ffa500;
+  background-color: white;
+  color: #333;
+}
+
+select:focus {
+  outline: none;
+  border-color: #e69100;
+}
+.copy-button {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      background:  #ffa500;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .copy-button:hover {
+      background-color:  #ffa500;
+    }
+    #back-button {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      background: #3d52a0;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+
+#back-button:hover {
+  background-color:#3d52a0;
+  transform: scale(1.05);
+  animation: pulse 2s infinite;
+}
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 1rem;
+  flex-wrap: wrap; /* optional: keeps layout responsive on small screens */
+}
+
+.copy-button-container,
+.back-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+  </style>
